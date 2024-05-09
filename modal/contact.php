@@ -1,5 +1,5 @@
 <?php
-
+echo "Script executed!";
 // Put contacting email here
 $php_main_email = "sm6214678@gmail.com";
 
