@@ -704,6 +704,34 @@
 	<!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
 	<script src="js/plugins.js"></script>
 	<script src="js/init.js"></script>
+	<script><!-- Include jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#send_message').on('click', function(e) {
+            e.preventDefault(); // Prevent the default form submission
+            
+            var name = $('#name').val();
+            var email = $('#email').val();
+            var message = $('#message').val();
+            
+            // AJAX request
+            $.ajax({
+                type: 'POST',
+                url: 'contact.php',
+                data: {
+                    ajax_name: name,
+                    ajax_email: email,
+                    ajax_message: message
+                },
+                success: function(response) {
+                    $('.returnmessage').html(response); // Display the response
+                }
+            });
+        });
+    });
+</script>
+</script>
 	<!-- /SCRIPTS -->
 
 </body>
