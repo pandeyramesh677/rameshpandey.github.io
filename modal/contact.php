@@ -2,9 +2,6 @@
 echo "Script executed!";
 var_dump($_POST);
 
-// Include PHPMailer autoload file
-require 'path/to/PHPMailerAutoload.php'; // Update the path accordingly
-
 // Put contacting email here
 $php_main_email = "sm6214678@gmail.com";
 
@@ -20,26 +17,14 @@ $php_email = filter_var($php_email, FILTER_SANITIZE_EMAIL);
 if (filter_var($php_email, FILTER_VALIDATE_EMAIL)) {
     $php_subject = "Message from contact form";
     
-    // Initialize PHPMailer
-    $mail = new PHPMailer();
+    // Construct email headers
+    $php_headers = 'MIME-Version: 1.0' . "\r\n";
+    $php_headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+    $php_headers .= 'From: ' . $php_email . "\r\n"; // Sender's Email
+    $php_headers .= 'Cc: ' . $php_email . "\r\n"; // Carbon copy to Sender
     
-    // Set SMTP settings
-    $mail->isSMTP();
-    $mail->Host = 'smtp.example.com'; // Update with your SMTP host
-    $mail->SMTPAuth = true;
-    $mail->Username = 'your@example.com'; // Update with your SMTP username
-    $mail->Password = 'yourpassword'; // Update with your SMTP password
-    $mail->SMTPSecure = 'tls'; // You can use 'tls' or 'ssl'
-    $mail->Port = 587; // You may need to change this port based on your SMTP configuration
-    
-    // Set From/To
-    $mail->setFrom($php_email);
-    $mail->addAddress($php_main_email);
-    
-    // Set email content
-    $mail->isHTML(true);
-    $mail->Subject = $php_subject;
-    $mail->Body = '<div style="padding:50px;">Hello ' . $php_name . ',<br/>'
+    // Construct email message
+    $php_message_body = '<div style="padding:50px;">Hello ' . $php_name . ',<br/>'
         . 'Thank you for contacting us.<br/><br/>'
         . '<strong style="color:#f00a77;">Name:</strong>  ' . $php_name . '<br/>'
         . '<strong style="color:#f00a77;">Email:</strong>  ' . $php_email . '<br/>'
@@ -48,14 +33,13 @@ if (filter_var($php_email, FILTER_VALIDATE_EMAIL)) {
         . '<br/>'
         . 'We will contact you as soon as possible .</div>';
     
-    // Send email
-    if ($mail->send()) {
+    // Send email using mail() function
+    if (mail($php_main_email, $php_subject, $php_message_body, $php_headers)) {
         echo ""; // Email sent successfully
     } else {
-        echo "Error: " . $mail->ErrorInfo; // Error sending email
+        echo "<span class='contact_error'>Failed to send email.</span>"; // Error sending email
     }
 } else {
     echo "<span class='contact_error'>* Invalid email *</span>";
 }
-
 ?>
