@@ -1,6 +1,4 @@
 <?php
-echo "Failed to send email: " . $mail->ErrorInfo;
-
 require 'smtp/PHPMailerAutoload.php'; // Include PHPMailer autoload file
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -16,9 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $mail->SMTPSecure = 'tls'; // You can use 'tls' or 'ssl'
     $mail->Port = 587; // You may need to change this port based on your SMTP configuration
     
+    // Set recipient email address
+    $mail->addAddress('your_email@example.com'); // Replace 'your_email@example.com' with your actual email address
+    
     // Set email parameters
     $mail->setFrom($_POST["email"], $_POST["name"]);
-    $mail->addAddress('recipient@example.com'); // Recipient's email address
     $mail->isHTML(true);
     $mail->Subject = 'Site contact form';
     $mail->Body = 'Name: ' . $_POST["name"] . '<br>Email: ' . $_POST["email"] . '<br>Message: ' . nl2br($_POST["comment"]);
@@ -27,7 +27,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ($mail->send()) {
         echo "Your message was sent";
     } else {
-        echo "Failed to send email: " . $mail->ErrorInfo;
+        header("Location: index.php?error=email"); // Redirect back to index.php with error parameter
+        exit();
     }
 } else {
     echo "Method not allowed";
