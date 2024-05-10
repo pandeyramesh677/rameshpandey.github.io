@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $message = $_POST['message'];
 
     // Your email address where you want to receive messages
-    $recipient_email = "your_email@example.com";
+    $recipient_email = "sm6214678@gmail.com";
 
     // Email subject
     $subject = "New message from contact form";
