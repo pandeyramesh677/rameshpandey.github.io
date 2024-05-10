@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-    const contact_Form = document.getElementById('contact_Form');
+    const contactForm = document.getElementById('contactForm');
     const statusMessage = document.getElementById('statusMessage');
   
-    contact_Form.addEventListener('submit', function (event) {
+    contactForm.addEventListener('submit', function (event) {
       event.preventDefault(); // Prevent the default form submission
   
-      const formData = new FormData(contact_Form);
+      const formData = new FormData(contactForm);
   
       // Make an AJAX request to an external server-side script
       fetch('https://github.com/pandeyramesh677/rameshpandey.github.io/blob/main/process_form.php', {
