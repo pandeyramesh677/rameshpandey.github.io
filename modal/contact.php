@@ -16,8 +16,8 @@ $mail = new PHPMailer();
 $mail->isSMTP();
 $mail->Host = 'smtp.example.com'; // Update with your SMTP host
 $mail->SMTPAuth = true;
-$mail->Username = 'your@example.com'; // Update with your SMTP username
-$mail->Password = 'yourpassword'; // Update with your SMTP password
+$mail->Username = 'sm6214678@gmail.com'; // Update with your SMTP username
+$mail->Password = 'Gloomykicker @1#3'; // Update with your SMTP password
 $mail->SMTPSecure = 'tls'; // You can use 'tls' or 'ssl'
 $mail->Port = 587; // You may need to change this port based on your SMTP configuration
 
