@@ -628,24 +628,24 @@
 					</div>
 					<div class="right wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">
 						<div class="fields">
-							<form action="modal/contact.php" method="post" class="contact_form" id="contact_form">
-    <div class="returnmessage" data-success="Your message has been received, We will contact you soon."></div>
-    <div class="empty_notice"><span>Please Fill Required Fields</span></div>
+							<form action="contact.php" method="post" class="contact_form" id="contact_form">
+    <div class="returnmessage" data-success="Your message has been received. We will contact you soon."></div>
+    <div class="empty_notice"><span>Please fill in all required fields</span></div>
     <div class="first">
         <ul>
             <li>
-                <input id="name" type="text" placeholder="Name" name="ajax_name">
+                <input id="name" type="text" name="name" placeholder="Name" required>
             </li>
             <li>
-                <input id="email" type="text" placeholder="Email" name="ajax_email">
+                <input id="email" type="email" name="email" placeholder="Email" required>
             </li>
         </ul>
     </div>
     <div class="last">
-        <textarea id="message" placeholder="Message" name="ajax_message"></textarea>
+        <textarea id="message" name="message" placeholder="Message" required></textarea>
     </div>
     <div class="grax_tm_button">
-        <button type="submit">Send Message</button>
+        <button type="submit" id="send_message">Send Message</button>
     </div>
 </form>
 
@@ -701,34 +701,6 @@
 	<!--[if lt IE 10]> <script type="text/javascript" src="js/ie8.js"></script> <![endif]-->
 	<script src="js/plugins.js"></script>
 	<script src="js/init.js"></script>
-	<script><!-- Include jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#send_message').on('click', function(e) {
-            e.preventDefault(); // Prevent the default form submission
-            
-            var name = $('#name').val();
-            var email = $('#email').val();
-            var message = $('#message').val();
-            
-            // AJAX request
-            $.ajax({
-                type: 'POST',
-                url: 'contact.php',
-                data: {
-                    ajax_name: name,
-                    ajax_email: email,
-                    ajax_message: message
-                },
-                success: function(response) {
-                    $('.returnmessage').html(response); // Display the response
-                }
-            });
-        });
-    });
-</script>
-</script>
 	<!-- /SCRIPTS -->
 
 </body>
