@@ -1,5 +1,5 @@
 <?php
-require 'path/to/PHPMailerAutoload.php'; // Include PHPMailer autoload file
+require 'PHPMailer.php'; // Include PHPMailer autoload file
 
 // Put your email address here
 $recipient_email = "sm6214678@gmail.com";
