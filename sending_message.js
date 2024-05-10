@@ -1,6 +1,6 @@
 // JavaScript code to fetch data from test.php
 document.addEventListener('DOMContentLoaded', function () {
-    fetch('test.php')
+    fetch('https://github.com/pandeyramesh677/rameshpandey.github.io/blob/main/test.php')
     .then(response => {
         if (response.ok) {
             return response.text(); // If the response is OK, return the response text
