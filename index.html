@@ -1,6 +1,3 @@
-<?php
-echo "Hello, world!";?>
-
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
 <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
@@ -629,15 +626,8 @@ echo "Hello, world!";?>
 					</div>
 					<div class="right wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">
 						<div class="fields">
-							<?php
-if (isset($_GET['error'])) {
-    $error = $_GET['error'];
-    if ($error === 'email') {
-        echo '<p style="color: red;">Failed to send email. Please try again later.</p>';
-    }
-}
-?>
-<form action="modal/contact.php" method="post">
+							
+<form action="test.php" method="post">
     <div>
         <label for="name">Your name:</label>
         <input type="text" id="name" name="name" required>
