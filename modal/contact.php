@@ -1,32 +1,33 @@
 <?php
-include('smtp/PHPMailerAutoload.php');
+require 'smtp/PHPMailerAutoload.php'; // Include PHPMailer autoload file
 
-echo smtp_mailer('to_email','Subject','html');
-function smtp_mailer($to,$subject, $msg){
-	$mail = new PHPMailer(); 
-	$mail->IsSMTP(); 
-	$mail->SMTPAuth = true; 
-	$mail->SMTPSecure = 'tls'; 
-	$mail->Host = "smtp.gmail.com";
-	$mail->Port = 587; 
-	$mail->IsHTML(true);
-	$mail->CharSet = 'UTF-8';
-	//$mail->SMTPDebug = 2; 
-	$mail->Username = "sm6214678@gmail.com";
-	$mail->Password = "Gloomykicker @1#3";
-	$mail->SetFrom("email");
-	$mail->Subject = $subject;
-	$mail->Body =$msg;
-	$mail->AddAddress($to);
-	$mail->SMTPOptions=array('ssl'=>array(
-		'verify_peer'=>false,
-		'verify_peer_name'=>false,
-		'allow_self_signed'=>false
-	));
-	if(!$mail->Send()){
-		echo $mail->ErrorInfo;
-	}else{
-		return 'Sent';
-	}
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // Initialize PHPMailer
+    $mail = new PHPMailer;
+
+    // SMTP settings for Gmail
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'sm6214678@gmail.com'; // Your Gmail email address
+    $mail->Password = 'Gloomykicker @1#3'; // Your Gmail account password
+    $mail->SMTPSecure = 'tls'; // You can use 'tls' or 'ssl'
+    $mail->Port = 587; // You may need to change this port based on your SMTP configuration
+    
+    // Set email parameters
+    $mail->setFrom($_POST["email"], $_POST["name"]);
+    $mail->addAddress('recipient@example.com'); // Recipient's email address
+    $mail->isHTML(true);
+    $mail->Subject = 'Site contact form';
+    $mail->Body = 'Name: ' . $_POST["name"] . '<br>Email: ' . $_POST["email"] . '<br>Message: ' . nl2br($_POST["comment"]);
+
+    // Send email
+    if ($mail->send()) {
+        echo "Your message was sent";
+    } else {
+        echo "Failed to send email: " . $mail->ErrorInfo;
+    }
+} else {
+    echo "Method not allowed";
 }
 ?>
