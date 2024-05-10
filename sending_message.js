@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const formData = new FormData(contactForm);
   
       // Make an AJAX request to an external server-side script
-      fetch('https://example.com/process-form.php', {
+      fetch('https://github.com/pandeyramesh677/rameshpandey.github.io/blob/main/process_form.php', {
         method: 'POST',
         body: formData
       })
