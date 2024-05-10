@@ -628,6 +628,14 @@
 					</div>
 					<div class="right wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">
 						<div class="fields">
+							<?php
+    if (isset($_GET['error'])) {
+        $error = $_GET['error'];
+        if ($error === 'email') {
+            echo '<p style="color: red;">Failed to send email. Please try again later.</p>';
+        }
+    }
+    ?>
 				<form action="contact.php" method="post">
         <div>
             <label for="name">Your name:</label>
