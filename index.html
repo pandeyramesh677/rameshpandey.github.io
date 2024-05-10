@@ -628,21 +628,13 @@
 					</div>
 					<div class="right wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">
 						<div class="fields">
-							 <form action="modal/contact.php" method="post">
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-        <div>
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" required></textarea>
-        </div>
-        <button type="submit" name="submit">Submit</button>
-    </form>
+				<form action="modal/contact.php" method="POST">
+    <p>Name</p> <input type="text" name="name" class="input">
+    <p>Email</p> <input type="email" name="email" class="input">
+    <p>Message</p><textarea name="message" rows="6" cols="25" class="input"></textarea><br />
+    <input type="submit" value="Send">
+</form>
+
 						                                                            </div>
 					                                                            </div>
 				                                                            </div>
