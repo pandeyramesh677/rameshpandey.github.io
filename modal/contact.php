@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $mail->Port = 587; // You may need to change this port based on your SMTP configuration
     
     // Set recipient email address
-    $mail->addAddress('your_email@example.com'); // Replace 'your_email@example.com' with your actual email address
+    $mail->addAddress('narniya109@gmail.com'); // Replace 'your_email@example.com' with your actual email address
     
     // Set email parameters
     $mail->setFrom($_POST["email"], $_POST["name"]);
