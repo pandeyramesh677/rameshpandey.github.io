@@ -287,7 +287,7 @@
 			<div class="bg">
 				<video autoplay loop muted style="width: 100%; height: 100%; object-fit: cover;">
 					<source
-						src="C:\Users\pande\Downloads\grax-personal-portfolio-template-2023-11-27-05-03-09-utc\html\img\slider\video.mp4"
+						src="img/slider/video.mp4"
 						type="video/mp4">
 					Your browser does not support the video tag.
 				</video>
@@ -454,7 +454,7 @@
 									<a class="grax_tm_full_link" href="https://github.com/pandeyramesh677/Email-Message-Spam-Detection"></a>
 								</div>
 							</li>
-							<li class="wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".4s">
+							<li class="wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".2s">
 								<div class="list_inner">
 									<div class="image">
 										<img src="img/placeholders/1-1.jpg" alt="" />
@@ -465,7 +465,7 @@
 										<h3>Education Analysis</h3><br>
 										<span>Global education analysis reveals disparities in access, gender gaps, and age-specific challenges, recommending targeted interventions & policy reforms.</span>
 									</div>
-									<a class="grax_tm_full_link zoom" href="https://github.com/pandeyramesh677/WorldEduScape-Analysis-Unveiling-Educational-Realities"></a>
+									<a class="grax_tm_full_link" href="https://github.com/pandeyramesh677/Email-Message-Spam-Detection"></a>
 								</div>
 							</li>
 						</ul>
@@ -628,35 +628,26 @@
 					</div>
 					<div class="right wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".2s">
 						<div class="fields">
-							<form action="contact.php" method="post" class="contact_form" id="contact_form">
-								<div class="returnmessage"
-									data-success="Your message has been received, We will contact you soon."></div>
-								<div class="empty_notice"><span>Please Fill Required Fields</span></div>
-								<div class="first">
-									<ul>
-										<li>
-											<input id="name" type="text" placeholder="Name">
-										</li>
-										<li>
-											<input id="email" type="text" placeholder="Email">
-										</li>
-									</ul>
-								</div>
-								<div class="last">
-									<textarea id="message" placeholder="Message"></textarea>
-								</div>
-								<div class="grax_tm_button">
-									<a id="send_message" href="#">Send Message</a>
-								</div>
-
-								<!-- If you want to change mail address to yours, please open modal.php and go to line 4 -->
-
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+							 <form action="modal/contact.php" method="post">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit" name="submit">Submit</button>
+    </form>
+						                                                            </div>
+					                                                            </div>
+				                                                            </div>
+			                                                            </div>
+		                                                            </div>
 		<!-- /CONTACT -->
 
 		<!-- COPYRIGHT -->
