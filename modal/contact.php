@@ -1,4 +1,6 @@
 <?php
+echo "Failed to send email: " . $mail->ErrorInfo;
+
 require 'smtp/PHPMailerAutoload.php'; // Include PHPMailer autoload file
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
